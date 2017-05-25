@@ -1,0 +1,124 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{#1}\else\fi
+
+\bibitem{itechart_2013}
+\selectlanguageifdefined{english}
+\BibEmph{iTechArt}. Company profile [Электронный ресурс]. ---
+\newblock Электронные данные. ---
+\newblock Режим доступа:
+  http://www.itechart.com/docs/companyprofile.pdf.
+
+\bibitem{mcconnell_2005}
+\selectlanguageifdefined{russian}
+\BibEmph{Макконнелл,~С.} Совершенный код.
+  Мастер"=класс / Пер. с англ.~/ С.~Макконнелл.
+  ---
+\newblock СПб.~: Издательско"=торговый дом
+  <<Русская редакция>>, 2005. ---
+\newblock 896~{с.}
+
+\bibitem{fsdg_2010}
+\selectlanguageifdefined{english}
+\BibEmph{Research,~Microsoft}. Draft F\# Component Design Guidelines. ---
+\newblock 2010. --- April.
+
+\bibitem{ecma_335}
+\selectlanguageifdefined{english}
+Common Language Infrastructure (CLI). Partitions I to VI. ---
+\newblock 2012. --- June. \BibUrl{
+  http://www.ecma-international.org/publications/standards/Ecma-335.htm}.
+
+\bibitem{richter_2007_ru}
+\selectlanguageifdefined{russian}
+\BibEmph{Рихтер,~Джеффри}. CLR via C\#.
+  Программирование на платформе Microsoft .NET
+  Framework 2.0 на языке C\#~/ Джеффри~Рихтер. ---
+\newblock 2-е {изд.} ---
+\newblock СПб.~: Питер, Русская Редакция, 2007. ---
+\newblock 656~{с.}
+
+\bibitem{marchenko_2007}
+\selectlanguageifdefined{russian}
+\BibEmph{Марченко,~А.~Л.} Основы
+  программирования на C\# 2.0~/ А.~Л.~Марченко. ---
+\newblock БИНОМ. Лаборатория знаний,
+  Интернет"=университет информационных
+  технологий "--- ИНТУИТ.ру, 2007. ---
+\newblock 552~{с.}
+
+\bibitem{richter_2012_en}
+\selectlanguageifdefined{english}
+\BibEmph{Richter,~Jeffrey}. CLR via C\#~/ Jeffrey~Richter. Microsoft, Developer
+  Reference. ---
+\newblock 4-th edition. ---
+\newblock One Microsoft Way, Redmond, Washington 98052-6399~: Microsoft Press,
+  2012. ---
+\newblock 896~P.
+
+\bibitem{sicp_2006_ru}
+\selectlanguageifdefined{russian}
+\BibEmph{Абельсон,~Харольд}. Структура и
+  интерпретация компьютерных программ~/
+  Харольд~Абельсон, Джеральд~Джей~Сассман,
+  Джули~Сассман. ---
+\newblock Добросвет, 2006. ---
+\newblock 608~{с.}
+
+\bibitem{albahari_2012_en}
+\selectlanguageifdefined{english}
+\BibEmph{Albahari,~Joseph}. C\# 5.0 in a Nutshell~/ Joseph~Albahari,
+  Ben~Albahari. ---
+\newblock 5-th edition. ---
+\newblock O’Reilly Media, Inc, 2012. --- June. ---
+\newblock 1062~P.
+
+\bibitem{volosevich_cs_2011}
+\selectlanguageifdefined{russian}
+\BibEmph{Волосевич,~А.~А.} Язык C\# и основы
+  платформы .NET: Учебно"=метод. пособие по
+  курсу <<Избранные главы информатики>> для
+  студ. спец. \mbox{I-31~03~04} <<Информатика>> всех
+  форм обуч.~/ А.~А.~Волосевич. ---
+\newblock Минск~, 2006. ---
+\newblock 60~{с.}
+
+\bibitem{csharp_wiki_2013_ru}
+\selectlanguageifdefined{english}
+C Sharp [Электронный ресурс]. ---
+\newblock Электронные данные. ---
+\newblock Режим доступа:
+  \url{http://ru.wikipedia.org/wiki/C\_Sharp}. --- Дата доступа:
+  22.03.2013.
+
+\bibitem{fsharp_pfp_issue_5}
+\selectlanguageifdefined{russian}
+\BibEmph{Лазин,~Е.} Введение в F\#~/ Е.~Лазин,
+  М.~Моисеев, Д.~Сорокин~// \BibEmph{Практика
+  функционального программирования}. ---
+\newblock 2010. ---
+\newblock {№}~5. ---
+\newblock 149~{с.}
+
+\bibitem{harrison_1997}
+\selectlanguageifdefined{english}
+\BibEmph{Harrison,~Jonh}. Introduction to Functional Programming~/
+  Jonh~Harrison. ---
+\newblock University of Cambridge~, 1997. --- December. ---
+\newblock 168~P.
+
+\bibitem{pfp_funelem_issue3_2009}
+\selectlanguageifdefined{russian}
+\BibEmph{Кирпичёв,~Е.} Элементы функциональных
+  языков~/ Е.~Кирпичёв~// \BibEmph{Практика
+  функционального программирования}. ---
+\newblock 2009. --- Декабрь. ---
+\newblock {№}~3. ---
+\newblock 196~{с.}
+
+\end{thebibliography}
