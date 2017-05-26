@@ -137,12 +137,31 @@
 \FPeval{\newStopTime}{8}
 \FPeval{\stopHourPrice}{5}
 \FPeval{\monthlyProgPayment}{1400}
-\FPeval{\paymentUpCoeff}{2.1}
+\FPeval{\paymentUpCoeff}{1.5}
 \FPeval{\averageWorkingDaysMontly}{21}
 \FPeval{\typicalIssueSolvingInYear}{3800}
 \FPeval{\jobsVolume}{3800}
 \FPeval{\baseAverageLabourIntensity}{1.3}
 \FPeval{\newAverageLabourIntensity}{0.4}
+
+\FPeval{\paymentEconomyOnOneTask}{7.5}
+\FPeval{\paymentEconomyByUsingNewSoftware}{28500}
+\FPeval{\paymentEconomyCountingUp}{42750}
+\FPeval{\paymentEconomyByReducingStopTime}{2483.3}
+\FPeval{\commonPaymentEconomyByUsingNewSoftware}{clip(\paymentEconomyCountingUp + \paymentEconomyByReducingStopTime)}
+\FPeval{\pureIncome}{clip(\commonPaymentEconomyByUsingNewSoftware - (\commonPaymentEconomyByUsingNewSoftware * \taxForIncome / 100))}
+
+\FPeval{\reductionCoeffFirst}{1.000}
+\FPeval{\reductionCoeffSecond}{0.869}
+\FPeval{\reductionCoeffThird}{0.756}
+\FPeval{\reductionCoeffFourth}{0.659}
+
+\FPeval{\overcomeValueSecond}{clip(\reductionCoeffSecond * \pureIncome)}
+\FPeval{\growingResultSecond}{clip(-\allCostsSoftware + \overcomeValueSecond)}
+\FPeval{\overcomeValueThird}{clip(\reductionCoeffThird * \pureIncome)}
+\FPeval{\growingResultThird}{clip(\growingResultSecond + \overcomeValueThird)}
+\FPeval{\overcomeValueFourth}{clip(\reductionCoeffThird * \pureIncome)}
+\FPeval{\growingResultFourth}{clip(\growingResultThird + \overcomeValueThird)}
 % End Calculations
 
 \subsection{Введение и исходные данные}
@@ -151,7 +170,7 @@
 
 Для разработчика экономическая эффективность будет определяться как прибыль от реализации, а для пользователя - как экономия затрат. Для определения экономической эффективности рассчитаем смету затрат и цену программного продукта.
 
-\subsection{Расчёт сметы затрат и цены программного продукта}
+\subsection{Расчет сметы затрат и цены программного продукта}
 
 Для представления программного продукта на рынке он должен быть законченным, иметь презентабельный вид. Для реализации программного продукта необходимо пройти через два этапа: этап, связанный с разработкой ПО(выяснение требований, программирование, тестирование, отладка), и этап, связанный с непосредственной реализацией продукта на рынке (реализация, поддержка).
 
@@ -203,10 +222,10 @@
   \end{tabular}
 \end{table}
 
-Объём программного средства определяется путём подбора аналогов на основании классификации типов программного средства, каталога функций, которые постоянно обновляются и утверждаются в установленном порядке. На основании инфорациии и функциях разрабатываемого программного средства по каталогу функций определяется объём функций. Объём программного средства определяется на основе нормативных данных, приведенных в таблице ~\ref{table:econ:volume_of_po}
+Объем программного средства определяется путем подбора аналогов на основании классификации типов программного средства, каталога функций, которые постоянно обновляются и утверждаются в установленном порядке. На основании инфорациии и функциях разрабатываемого программного средства по каталогу функций определяется объем функций. Объем программного средства определяется на основе нормативных данных, приведенных в таблице ~\ref{table:econ:volume_of_po}
 
 \begin{table}
-\caption{Перечень и объём функций программного модуля}
+\caption{Перечень и объем функций программного модуля}
 \label{table:econ:volume_of_po}
 \centering
   \begin{tabular}{| >{\centering}m{0.12\textwidth}
@@ -216,7 +235,7 @@
   \hline
          \multirow{2}{0.12\textwidth}[-0.5em]{\centering \No{} функции}
        & \multirow{2}{0.40\textwidth}[-0.55em]{\centering Наименование (содержание)}
-       & \multicolumn{2}{c|}{\centering Объём функции, LoC} \tabularnewline
+       & \multicolumn{2}{c|}{\centering Объем функции, LoC} \tabularnewline
   \cline{3-4} &
        & { по каталогу ($ V_{i} $) }
        & { уточненный ($ V_{i}^{\text{у}} $) } \tabularnewline
@@ -238,27 +257,27 @@
   \end{tabular}
 \end{table}
 
-Общий объём программного продукта определяется исходя из количества и объёма функций, реализованных в программе, рассчитывается по формуле ~\ref{eq:econ:total_program_size}:
+Общий объем программного продукта определяется исходя из количества и объема функций, реализованных в программе, рассчитывается по формуле ~\ref{eq:econ:total_program_size}:
 \begin{equation}
   \label{eq:econ:total_program_size}
   V_{o} = \sum_{i = 1}^{n} V_{i} \text{\,,}
 \end{equation}
 \begin{explanation}
-где & $ V_{i} $ & объём отдельной функции ПО, LoC; \\
+где & $ V_{i} $ & объем отдельной функции ПО, LoC; \\
     & $ n $ & общее число функций.
 \end{explanation}
 
-Уточненный объём ПО ($ V_{o} $) рассчитывается по формуле~\ref{eq:econ:total_program_size_corrected}:
+Уточненный объем ПО ($ V_{o} $) рассчитывается по формуле~\ref{eq:econ:total_program_size_corrected}:
 \begin{equation}
   \label{eq:econ:total_program_size_corrected}
   V_{\text{у}} = \sum_{i = 1}^{n} V_{i}^{\text{у}} \text{\,,}
 \end{equation}
 \begin{explanation}
-где & $ V_{i}^{\text{y}} $ & уточненный объём отдельной функции ПО, LoC; \\
+где & $ V_{i}^{\text{y}} $ & уточненный объем отдельной функции ПО, LoC; \\
     & $ n $ & общее число функций.
 \end{explanation}
 
-Уточнённый объём ПО - 8400 LOC. По отнесено ко второй категории сложности: предполагается обеспечить переносимость ПО. Наличие характеристики, определяющей сложность ПО, позволяет применить к объёму ПО коэффициент $ \text{К}_\text{с} $. Посредством коэффициента сложности учитываются дополнительные затраты труда, связанные со сложностью разрабатываемого программного продукта. Коэффициент сложности рассчитывается по формуле~\ref{eq:econ:complexity_coeff}
+Уточненный объем ПО - 8400 LOC. По отнесено ко второй категории сложности: предполагается обеспечить переносимость ПО. Наличие характеристики, определяющей сложность ПО, позволяет применить к объему ПО коэффициент $ \text{К}_\text{с} $. Посредством коэффициента сложности учитываются дополнительные затраты труда, связанные со сложностью разрабатываемого программного продукта. Коэффициент сложности рассчитывается по формуле~\ref{eq:econ:complexity_coeff}
 
 \begin{equation}
 \label{eq:econ:complexity_coeff}
@@ -277,7 +296,7 @@
 
 Коэффициент использования стандартных модулей $ \text{К}_\text{т} $ = \num{\stdModuleUsageFactor}, а коэффициент новизны ПО $ \text{К}_\text{н} $ = \num{\originalityFactor}
 
-Нормативная трудоёмкость разработки ПО ($ \text{Т}_\text{н} $) определяется согласно прил.3 (гр.1, стр. 20 - 8400 LOC; гр.3 стр. 20 - \num{\normativeManDays} чел./дн.) и составляет \num{\normativeManDays} чел./дн.
+Нормативная трудоемкость разработки ПО ($ \text{Т}_\text{н} $) определяется согласно прил.3 (гр.1, стр. 20 - 8400 LOC; гр.3 стр. 20 - \num{\normativeManDays} чел./дн.) и составляет \num{\normativeManDays} чел./дн.
 Нормативная трудоемкость служит основой для оценки общей трудоемкости~$ \text{Т}_\text{о} $.
 Используем формулу (\ref{eq:econ:effort_common}) для оценки общей трудоемкости для небольших проектов:
 \begin{equation}
@@ -293,7 +312,7 @@
     & $ \text{К}_\text{н} $ & коэффициент, учитывающий степень новизны ПО.
 \end{explanation}
 
-Следовательно общая трудоёмкость составит:
+Следовательно общая трудоемкость составит:
 \begin{equation}
   \label{eq:econ:effort_common_calc}
   \text{Т}_\text{о} = \num{\normativeManDays} \times \num{\complexityFactor} \times \num{\stdModuleUsageFactor} \times \num{\originalityFactor} \approx \SI{\adjustedManDays}{\text{чел.}/\text{дн.}}
@@ -627,7 +646,7 @@
   \text{С}_{\text{п}} = \num{\overallCost} + \num{\softwareSupportCost} = \SI{\baseCost}{\text{\byr}} \text{\,.}
 \end{equation}
 
-Расчёт прогнозируемой прибыли:
+Расчет прогнозируемой прибыли:
 
 \begin{equation}
   \label{eq:econ:margin_calculation}
@@ -733,7 +752,7 @@
     \num{\income} \times \left( 1 - \frac{\num{\taxForIncome\%}}{100\%} \right) = \SI{\incomeWithTaxes}{\text{\byr}} \text{\,.}
 \end{equation}
 
-Результаты расчёта себестоимости и отпускной цены представлены в таблице ~\ref{table:econ:selfprice}
+Результаты расчета себестоимости и отпускной цены представлены в таблице ~\ref{table:econ:selfprice}
 
 \begin{table}
 \caption{Себестоимость и отпускная цена ПО}
@@ -783,10 +802,10 @@
 
 \subsection{Оценка экономической эффективности применения ПС у пользователя}
 
- Для расчёта экономического эффекта применения нового ПС необходимы данные имеющегося внедрённого на производстве аналога (базового варианта). Некоторые из показателей базового варианта не могут быть получены (составляют коммерческую тайну либо защищены авторскими правами разработчиков). Поэтому расчёт экономического эффекта будем проводить, опираясь на известные данные показателей базового и нового варианта ПС. Показатели обоих вариантов и исходные данные для расчёта экономического эффекта приведены в таблице~\ref{table:economic:compare_with_basic}
+ Для расчета экономического эффекта применения нового ПС необходимы данные имеющегося внедренного на производстве аналога (базового варианта). Некоторые из показателей базового варианта не могут быть получены (составляют коммерческую тайну либо защищены авторскими правами разработчиков). Поэтому расчет экономического эффекта будем проводить, опираясь на известные данные показателей базового и нового варианта ПС. Показатели обоих вариантов и исходные данные для расчета экономического эффекта приведены в таблице~\ref{table:economic:compare_with_basic}
 
 \begin{table}
-  \caption{Исходные данные для расчёта экономического эффекта}
+  \caption{Исходные данные для расчета экономического эффекта}
   \label{table:economic:compare_with_basic}
   \centering
   \begin{tabular}{| >{\centering}m{0.25\textwidth}
@@ -823,9 +842,9 @@
      \hline
      Количество типовых задачи решаемых за год & $\text{З}_{\text{т1}}$, $\text{З}_{\text{т2}}$ & задача & \num{\typicalIssueSolvingInYear} & \num{\typicalIssueSolvingInYear} \\
      \hline
-     Объём выполняемых работ & $\text{А}_{\text{1}}$, $\text{А}_{\text{2}}$ & задача & \num{\jobsVolume} & \num{\jobsVolume} \\
+     Объем выполняемых работ & $\text{А}_{\text{1}}$, $\text{А}_{\text{2}}$ & задача & \num{\jobsVolume} & \num{\jobsVolume} \\
      \hline
-     Средняя трудоёмкость работ в расчёте на задачу & $\text{Т}_{\text{с1}}$, $\text{Т}_{\text{с2}}$ & человеко-часов на задачу & \num{\baseAverageLabourIntensity} & \num{\newAverageLabourIntensity} \\
+     Средняя трудоемкость работ в расчете на задачу & $\text{Т}_{\text{с1}}$, $\text{Т}_{\text{с2}}$ & человеко-часов на задачу & \num{\baseAverageLabourIntensity} & \num{\newAverageLabourIntensity} \\
      \hline
      Количество часов работы в день & $\text{Т}_{\text{ч}}$ & час & \num{\workingHoursInDay} & \num{\workingHoursInDay} \\
      \hline
@@ -833,3 +852,155 @@
      \hline
    \end{tabular}
 \end{table}
+
+Общие капитальные вложения ($ \text{К}_{\text{о}} $) заказчика(потребителя), связанные с приобретением, внедрением и использованием ПС, включают в себя затраты на приобретение, освоение ПС, а также затраты на доукомплектацию техническими средствами в связи с внедрением нового ПС, а также затраты на пополнение оборотных средств в связи с использованием нового ПС.
+
+Экономия затрат на заработную плату в расчете на 1 задачу ($ \text{С}_{\text{зе}} $) рассчитаем по формуле ~\ref{eq:economic:spendingEconomyOnPayment}:
+\begin{equation}
+  \label{eq:economic:spendingEconomyOnPayment}
+  \text{C}_{\text{зе}} =
+    \frac { \text{З}_{\text{см}} \times (\text{Т}_{\text{с1}} - \text{Т}_{\text{с2}}) }
+          { \text{Т}_{\text{ч}} \times \text{Д}_{\text{р}}}
+\end{equation}
+Экономия заработной платы при использовании нового ПО ($ \text{С}_{\text{з}} $)рассчитывается по формуле ~\ref{eq:economic:spendingEconomyByNewSoftware}:
+\begin{equation}
+  \label{eq:economic:spendingEconomyByNewSoftware}
+  \text{C}_{\text{з}} = { \text{З}_{\text{зе}} \times \text{А}_{\text{2}} }
+\end{equation}
+Экономия с учетом начисления на зарплату ($ \text{С}_{\text{н}} $) рассчитывается по формуле ~\ref{eq:economic:spendingEconomyByUp}
+\begin{equation}
+  \label{eq:economic:spendingEconomyByUp}
+  \text{C}_{\text{н}} = { \text{С}_{\text{з}} \times 1,5 }
+\end{equation}
+Экономия за счет сокращения простоев сервиса ($ \text{С}_{\text{с}} $) рассчитывается по формуле ~\ref{eq:economic:spendingEconomyByStopReducing}:
+\begin{equation}
+  \label{eq:economic:spendingEconomyByStopReducing}
+  \text{C}_{\text{с}} =
+    \frac { (\text{П}_{\text{1}} - \text{П}_{\text{2}}) \times \text{Д}_{\text{рг}} \times \text{С}_{\text{п}} }
+          { 60 }
+\end{equation}
+\begin{explanation}
+  где & $ \text{Д}_{\text{рг}} $ & - плановый фонд работы сервиса (дней).
+\end{explanation}
+
+Общая годовая экономия текущих затрат, связанных с использованием нового ПО ($ \text{C}_{\text{о}} $), рассчитывается по формуле~\ref{eq:economic:commonYearEconomy}:
+\begin{equation}
+  \label{eq:economic:commonYearEconomy}
+  \text{C}_{\text{о}} = \text{C}_{\text{с}} + \text{C}_{\text{н}}
+\end{equation}
+
+Расчет капитальных затрат приведен в таблице~\ref{table:economic:commonPaymentCalculation}
+
+\begin{table}
+\caption{Расчет капитальных затрат}
+\label{table:economic:commonPaymentCalculation}
+  \centering
+  \begin{tabular}{| >{\centering}m{0.5\textwidth}
+                  | >{\centering}m{0.15\textwidth}
+                  | >{\centering\arraybackslash}m{0.25\textwidth}|}
+    \hline
+    {\begin{center}
+      Наименование
+    \end{center} } & Условное обозначение & Значение (\byr{}) \\
+    \hline
+    Общие капитальные затраты & $\text{К}_{\text{о}}$ & \num{\allCostsSoftware} \\
+    \hline
+    Экономия затрат на заработную плату в расчете на 1 задачу & $\text{С}_{\text{зе}}$ & \num{\paymentEconomyOnOneTask} \\
+    \hline
+    Экономия затрат на заработную плату при использовании нового ПС & $\text{С}_{\text{з}}$ & \num{\paymentEconomyByUsingNewSoftware} \\
+    \hline
+    Экономия затрат c учетом начисления на заработную платну & $\text{С}_{\text{н}}$ & \num{\paymentEconomyCountingUp} \\
+    \hline
+    Экономия затрат за счет сокращения простоя сервиса & $\text{С}_{\text{с}}$ & \num{\paymentEconomyByReducingStopTime} \\
+    \hline
+    Общая годовая экономия текущих затрат, связанных с использованием нового ПС & $\text{С}_{\text{о}}$ & \num{\commonPaymentEconomyByUsingNewSoftware} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Внедрение нового ПС позволит сэкономить на текущих затратах \num{\commonPaymentEconomyByUsingNewSoftware}.
+
+\subsection{Расчет экономического эффекта}
+
+Для пользователя в качестве экономического эффекта выступает лишь чистая прибыль - дополнительная прибыль, остающаяся в его распоряжении, которая определяется по формуле ~\ref{eq:economic:pure_income}
+
+\begin{equation}
+  \label{eq:economic:pure_income}
+  \text{П}_{\text{ч}} = \text{С}_{\text{о}} -
+    \frac { \text{С}_{\text{о}} \times \text{Н}_{\text{п}}}
+          { 100 \% }
+\end{equation}
+
+Тогда чистая прибыль будет равна:
+
+\begin{equation}
+  \label{eq:economic:pure_income}
+  \text{П}_{\text{ч}} = \text{45233,3} - (\text{45233,3} \times \text{18\%}) = \text{\pureIncome}
+\end{equation}
+
+
+В процессе использования нового ПС чистая прибыль в конечном итоге возмещает капистальные затраты. Однако полученные при этом суммы результатов (прибыли) и затрат (капитальных вложений) по годам приводят к единому времени - расчетному году (за расчетный год принят 2017 год) путем уменожения результатов и затрат за каждый код на коэффициент приведения, который рассчитывается по формуле~\ref{eq:economic:reduction_coeff}:
+
+\begin{equation}
+  \label{eq:economic:reduction_coeff}
+  \alpha_{\text{1}} = (\text{1} - \textit{A}_{\textit{i}})^{\textit{ip}-\text{1}}
+\end{equation}
+
+Коэффициентам приведения по годам будут соответствовать значения:
+
+\centerline{$ \alpha_{\text{1}} = \num{\reductionCoeffFirst} $ - расчётный год}
+\centerline{$ \alpha_{\text{2}} = \num{\reductionCoeffSecond} $ - 2018 год}
+\centerline{$ \alpha_{\text{3}} = \num{\reductionCoeffThird} $ - 2019 год}
+\centerline{$ \alpha_{\text{4}} = \num{\reductionCoeffFourth} $ - 2020 год}
+
+Расчёт экономического эффекта от использования нового программного средства представлен в таблице~\ref{table:economic:economicEffect}.
+
+\begin{table}
+\caption{Расчёт экономического эффекта от использования нового программного продукта}
+\label{table:economic:economicEffect}
+  \centering
+  \begin{tabular}{| >{\centering}m{0.2\textwidth}
+                  | >{\centering}m{0.15\textwidth}
+                  | >{\centering}m{0.15\textwidth}
+                  | >{\centering}m{0.15\textwidth}
+                  | >{\centering}m{0.15\textwidth}
+                  | >{\centering\arraybackslash}m{0.15\textwidth}|}
+    \hline
+    {\begin{center}
+      Наименование
+    \end{center} } & Единица измерения & 2017 & 2018 & 2019 & 2020 \\
+    \hline
+    Приоритет прибыли за счёт экономии затрат & \byr{} & - & \num{\pureIncome} & \num{\pureIncome} & \num{\pureIncome} \\
+    \hline
+    Прирост прибыли с учётом фактора времени & \byr{} & - & \num{\overcomeValueSecond} & \num{\overcomeValueThird} & \num{\overcomeValueFourth} \\
+    \hline
+    Затраты: & & & & & \\
+    \hline
+    Затраты на освоение и сопровождение ПС & \byr{} & \num{\softwareSupportCost} & & & \\
+    \hline
+    Затраты на пополнение оборотных фондов, связанных с эксплуатацией нового ПС & \byr{} & \num{\fundsExploationSoftware} & & & \\
+    \hline
+    Всего затрат & \byr{} & \num{\allCostsSoftware}  & & & \\
+    \hline
+    То же с учётом фактора времени & \byr{} & \num{\allCostsSoftware}  & & & \\
+    \hline
+    Экономический эффект: & & & & & \\
+    \hline
+    Превышение результата над затратами: & \byr{} & -\num{\allCostsSoftware} & \num{\overcomeValueSecond} & \num{\overcomeValueThird} & \num{\overcomeValueFourth} \\
+    \hline
+    То же с нарастающим итогом: & \byr{} & -\num{\allCostsSoftware} & \num{\growingResultSecond} & \num{\growingResultThird} & \num{\growingResultFourth} \\
+    \hline
+    Коэффцициент приведения: & единиц & \num{\reductionCoeffFirst} & \num{\reductionCoeffSecond} & \num{\reductionCoeffThird} & \num{\reductionCoeffFourth} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Выводы по технико-экономическому обоснованию}
+В результате технико-экономического обоснования были рассчитаны следующие экономические показатели:
+
+\begin{itemize}
+  \item смета затрат составляет $ \num{\baseCost} \byr{}$ и отпускная цена составляет $ \num{\sellingPrice} \byr{}$;
+  \item экономия затрат у пользователя составляет $ \num{\pureIncome} \byr{}$ и окупается на второй год;
+\end{itemize}
+
+Таким образом, разработка сервиса, предоставляющего возможность получения новинок музыкальной индустрии, является экономически целесообразной.
