@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.23)  26 MAY 2017 02:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.23)  26 MAY 2017 20:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1442,6 +1442,12 @@ Overfull \hbox (13.31409pt too wide) in paragraph at lines 20--20
 -сти сер-ви-са, предо- 
  []
 
+
+Overfull \hbox (6.66072pt too wide) in paragraph at lines 23--23
+ [][] [][]\T2A/ftm/m/it/14.4 Оценка эко-но-ми-че-ской эф-фек-тив-но-сти при-ме-
+не-ния ПС у поль- 
+ []
+
 )
 \tf@toc=\write4
 \openout4 = `diploma_report.toc'.
@@ -1515,7 +1521,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
-<figures/youtubejustreleased.png, id=123, 1049.9225pt x 533.995pt>
+<figures/youtubejustreleased.png, id=124, 1049.9225pt x 533.995pt>
 File: figures/youtubejustreleased.png Graphic file (type png)
 
 <use figures/youtubejustreleased.png>
@@ -1550,7 +1556,7 @@ Package babel Info: Redefining russian shorthand "|
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language  on input line 70.
 [9 <./figures/youtubejustreleased.png>]
-<figures/allmusic.png, id=138, 1055.945pt x 663.47874pt>
+<figures/allmusic.png, id=139, 1055.945pt x 663.47874pt>
 File: figures/allmusic.png Graphic file (type png)
 
 <use figures/allmusic.png>
@@ -1788,365 +1794,369 @@ Package babel Info: Redefining russian shorthand "~
 ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-DIV ) ( FP-CLIP ) ) )
 ( FP-ROUND ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-ADD ) ( FP-CLIP ) )
 ) ( FP-TRUNC ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
-( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-TRUNC )
-( FP-EVAL ( FP-UPN ( FP-SUB ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
-( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ( FP-MUL )
-( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) )
-( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-MUL ) ( FP-MUL )
-( FP-ADD ) ( FP-MUL ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) )
-( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND )
-( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-ADD )
-( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-MUL ) ( FP-DIV ) ( FP-CLIP
-) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-ADD )
-( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) )
-( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) )
-) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) )
-( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
-( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-MUL ) ( FP-CLIP ) ) ) ( FP-ROUND )
-( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) )
-) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV )
-( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN
-( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ( FP-ADD
-) ( FP-ADD ) ( FP-ADD ) ( FP-ADD ) ( FP-ADD ) ( FP-ADD ) ( FP-ADD ) ( FP-ADD )
-( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV
-) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-CLIP ) ) )
-( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-DIV ) ( FP-MUL ) ( FP-CLIP ) )
-) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-CLIP ) ) ) ( FP-EVAL
-( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-SUB ) ( FP-DIV ) ( FP-CLIP ) )
+( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-DIV ) ( FP-CLIP )
+) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) )
+( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV ) ) ) ( FP-EVAL
+( FP-UPN ( FP-MUL ) ( FP-DIV ) ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV ) )
+) ( FP-ROUND ) ( FP-ROUND ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
+( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-MUL ) ( FP-MUL ) ( FP-ADD )
+( FP-MUL ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL
+) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
+( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN
+( FP-ADD ) ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL
+( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) )
 ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
-( FP-UPN ( FP-ADD ) ( FP-DIV ) ( FP-MUL ) ( FP-CLIP ) ) ) ( FP-ROUND )
-( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-ADD ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN )
-) ( FP-EVAL ( FP-UPN ( FP-DIV ) ( FP-SUB ) ( FP-MUL ) ( FP-CLIP ) ) )
-( FP-ROUND )
+( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ) )
+( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL )
+( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV
+) ( FP-MUL ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
+( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN
+) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND )
+( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) )
+) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-ADD ) ( FP-ADD ) ( FP-ADD )
+( FP-ADD ) ( FP-ADD ) ( FP-ADD ) ( FP-ADD ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN
+) ) ( FP-EVAL ( FP-UPN ( FP-MUL ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND )
+( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
+( FP-UPN ( FP-DIV ) ( FP-MUL ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN
+( FP-ADD ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-MUL
+) ( FP-SUB ) ( FP-DIV ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) )
+( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-DIV ) ( FP-MUL )
+( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ( FP-ADD ) ( FP-ADD )
+( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ( FP-DIV ) ( FP-SUB
+) ( FP-MUL ) ( FP-CLIP ) ) ) ( FP-ROUND ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
+( FP-UPN ( FP-ADD ) ( FP-ADD ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ) )
+( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL
+( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN
+) ) ( FP-EVAL ( FP-UPN ) ) ( FP-EVAL ( FP-UPN ) )
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 139.
+(babel)             in language  on input line 154.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 139.
+(babel)             in language  on input line 154.
 
-Overfull \hbox (21.78128pt too wide) in paragraph at lines 158--158
- []|\T2A/ftm/bx/n/14.4 Буквенные 
- []
-
-
-Overfull \hbox (3.05719pt too wide) in paragraph at lines 151--191
+Overfull \hbox (3.05002pt too wide) in paragraph at lines 166--204
  [][] 
  []
 
-
-LaTeX Warning: Float too large for page by 16.81691pt on input line 191.
-
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 207.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 207.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 207.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 207.
 [21
 
 
 
 ]
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 203--208
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 207.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 207.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 207.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 207.
+ [22]
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 245--250
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--208
+Underfull \hbox (badness 10000) in paragraph at lines 245--250
 
  []
 
 
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 286--291
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 255--260
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--291
+Underfull \hbox (badness 10000) in paragraph at lines 255--260
 
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 300.
+(babel)             in language  on input line 260.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 300.
+(babel)             in language  on input line 260.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 300.
+(babel)             in language  on input line 260.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 300.
-[22]
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 309--315
- [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 309--315
-
- []
-
-
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 320--325
- [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 320--325
-
- []
-
-
-Overfull \hbox (0.18913pt too wide) in paragraph at lines 332--339
-\T2A/ftm/bx/n/14.4 ис-поль-зо-ва-ния стан-дарт-ных ком-по-нен-тов опре-де-ля-ет
--ся ко-эф-фи-ци-ен-том ис-
- []
-
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 339.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 339.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 339.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 339.
+(babel)             in language  on input line 260.
 [23]
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 349--355
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 266--271
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--355
+Underfull \hbox (badness 10000) in paragraph at lines 266--271
 
  []
 
 
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 364--371
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 289--295
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--371
+Underfull \hbox (badness 10000) in paragraph at lines 289--295
 
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 378.
+(babel)             in language  on input line 304.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 378.
+(babel)             in language  on input line 304.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 378.
+(babel)             in language  on input line 304.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 378.
+(babel)             in language  on input line 304.
 [24]
-Underfull \hbox (badness 1019) in paragraph at lines 416--416
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 307--313
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 307--313
+
+ []
+
+
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 322--329
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 322--329
+
+ []
+
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 371.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 371.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 371.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 371.
+[25]
+Underfull \hbox (badness 1019) in paragraph at lines 376--376
 []|\T2A/ftm/bx/n/14.4 тарифный ко-эф-фи-ци-ент, со-от-вет-ству-ю-щий уста-нов-л
 ен-но-му
  []
 
 
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 411--417
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 371--377
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--417
+Underfull \hbox (badness 10000) in paragraph at lines 371--377
 
  []
 
 
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 440--447
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 401--408
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 440--447
+Underfull \hbox (badness 10000) in paragraph at lines 401--408
 
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 452.
+(babel)             in language  on input line 413.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 452.
+(babel)             in language  on input line 413.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 452.
+(babel)             in language  on input line 413.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 452.
-[25]
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 460--464
- [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 460--464
-
- []
-
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 527.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 527.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 527.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 527.
+(babel)             in language  on input line 413.
 [26]
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 534--539
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 421--425
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 534--539
-
- []
-
-
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 560--564
- [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 560--564
-
- []
-
-
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 580--584
- [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 580--584
+Underfull \hbox (badness 10000) in paragraph at lines 421--425
 
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 584.
+(babel)             in language  on input line 488.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 584.
+(babel)             in language  on input line 488.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 584.
+(babel)             in language  on input line 488.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 584.
+(babel)             in language  on input line 488.
 [27]
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 601--605
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 495--500
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 601--605
+Underfull \hbox (badness 10000) in paragraph at lines 495--500
 
  []
 
 
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 644--648
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 521--525
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--648
+Underfull \hbox (badness 10000) in paragraph at lines 521--525
+
+ []
+
+
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 541--545
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--545
 
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 650.
+(babel)             in language  on input line 545.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 650.
+(babel)             in language  on input line 545.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 650.
+(babel)             in language  on input line 545.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 650.
+(babel)             in language  on input line 545.
 [28]
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 671.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 671.
-
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 694--699
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 562--566
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 694--699
+Underfull \hbox (badness 10000) in paragraph at lines 562--566
+
+ []
+
+
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 605--609
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 605--609
 
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 749.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 749.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 749.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 749.
+(babel)             in language  on input line 611.
 [29]
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 749--753
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 637--642
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 749--753
+Underfull \hbox (badness 10000) in paragraph at lines 637--642
 
  []
 
 
-Overfull \hbox (3.04219pt too wide) in paragraph at lines 781--785
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 692--696
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 781--785
+Underfull \hbox (badness 10000) in paragraph at lines 692--696
 
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 703.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 703.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 703.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 703.
 [30]
+Overfull \hbox (3.04219pt too wide) in paragraph at lines 724--728
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 724--728
+
+ []
+
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 784.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 784.
+
+Overfull \hbox (23.47496pt too wide) in paragraph at lines 798--799
+ []|[]| 
+ []
+
+
+Overfull \hbox (1.10594pt too wide) in paragraph at lines 799--799
+ []|\T2A/ftm/bx/n/14.4 Обозначения| 
+ []
+
+
+Overfull \hbox (4.26889pt too wide) in paragraph at lines 800--800
+ \T2A/ftm/bx/n/14.4 измерения| 
+ []
+
+
+Overfull \hbox (10.75787pt too wide) in paragraph at lines 792--835
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 104.48099pt on input line 835.
+
+)
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 9.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 9.
  [31]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
  [32]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
+(babel)             in language  on input line 9.
  [33]
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 872.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 872.
- [34])
 \openout2 = `sec_final.aux'.
 
  (./sec_final.tex
@@ -2163,8 +2173,7 @@ Package babel Info: Redefining russian shorthand "|
 (babel)             in language  on input line 11.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language  on input line 11.
- [35
-
+ [34
 
 
 
@@ -2184,7 +2193,7 @@ Package babel Info: Redefining russian shorthand "|
 (babel)             in language  on input line 32.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language  on input line 32.
-[36
+[35
 
 
 ]
@@ -2199,7 +2208,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 32.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 32.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 32.
 Package rerunfilecheck Info: File `diploma_report.out' has not changed.
-(rerunfilecheck)             Checksum: 8D386F4482F7CC4AD2E6FF0A8A1AE5EA;4966.
+(rerunfilecheck)             Checksum: FD5F6E4B8C8FDDA75B6554891E67DDC8;5078.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2207,14 +2216,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 32.
  ) 
 Here is how much of TeX's memory you used:
- 18579 strings out of 493014
- 258500 string characters out of 6133351
- 408990 words of memory out of 5000000
- 21501 multiletter control sequences out of 15000+600000
+ 18598 strings out of 493014
+ 258877 string characters out of 6133351
+ 398231 words of memory out of 5000000
+ 21519 multiletter control sequences out of 15000+600000
  22979 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,21n,50p,2654b,1269s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.10} has been referenced but does not exi
+pdfTeX warning (dest): name{section*.11} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{section*.3} has been referenced but does not exist,
@@ -2234,10 +2243,10 @@ ive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/20
 16/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on diploma_report.pdf (35 pages, 723253 bytes).
+Output written on diploma_report.pdf (34 pages, 723096 bytes).
 PDF statistics:
- 455 PDF objects out of 1000 (max. 8388607)
- 391 compressed objects within 4 object streams
- 131 named destinations out of 1000 (max. 500000)
+ 451 PDF objects out of 1000 (max. 8388607)
+ 388 compressed objects within 4 object streams
+ 132 named destinations out of 1000 (max. 500000)
  171 words of extra memory for PDF output out of 10000 (max. 10000000)
 
