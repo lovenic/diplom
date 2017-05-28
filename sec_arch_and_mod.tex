@@ -238,8 +238,8 @@ end
 \begin{lstlisting}[style=fsharpstyle,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:model:angular_artists_resource]
   app = angular.module('app')
 
-  app.factory 'Artist', ['\$resource', (\$resource) ->
-    \$resource('/artists/:id', { id: '@_id' }, {
+  app.factory 'Artist', ['$resource', ($resource) ->
+    $resource('/artists/:id', { id: '@_id' }, {
       short_info: {method: 'GET', url: '/artist/:id/short_info'}
       extended_info: {method: 'GET', url: '/artists/:id/extended_info'}
       last_releases: {method: 'GET', url: '/artists/:id/last_releases'}
@@ -269,12 +269,140 @@ end
 
 Также контроллер принимает определённые параметры как часть запроса. Например, немаловажной является функциональность пагинации, то есть разделения списка артистов по страницам. Для реализации этой функциональности используется библиотека Kaminari, которая предоставляет простой интерфейс, доступный в контроллерах и HTML-код, который можно использовать в представлениях для отображения элементов управления, содержащих номера страниц и кнопок, которые способны, например, перейти на страницу вперед иди назад, а также на первую или последнюю страницу.
 
+Стоит упомянуть, что контроллер отвечает за то, чтобы параметры, которые приходят в метод обработки ресурса, содержали только необходимые ключи. Это необходимо для того, чтобы обезопасить себя от многих атак. Для выборки параметров существует такой инструмент, как "parameters whitelist", то есть "белый лист параметров". В контроллере описывается private-метод, который указывает, какие параметры допустимы. Название этого метода обычно состоит из двух частей, первая из которых называется именем ресурса, а вторая содержит слово "params". Таким образом, в контроллере артистов этот метод будет называться "artists\_params".
+
 Пример кода контроллера, который обрабатывает ресурс артиста представлен на листинге ~\ref{lst:arch_and_mod:mvc:controller:artists_controller_example}.
 
-\begin{lstlisting}[style=fsharpstyle,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:model:angular_artists_resource]
+\begin{lstlisting}[style=fsharpstyle,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:controller:artists_controller_example]
+  class ArtistsController < ApplicationController
 
+    before_action :authenticate_user!
+
+    def index
+      authorize! :index, Artist
+      @artists = Artist.all
+                       .page(params[:page])
+                       .per(params[:per])
+       respond_to do |format|
+        format.js
+        format.html
+       end
+    end
+
+    def new
+      authorize! :new, Artist
+      @artist = Artist.new
+      respond_to do |format|
+       format.js
+       format.html
+      end
+    end
+
+    def create
+      authorize! :create, Artist
+      @artist = Artist.create(artists_params)
+      respond_to do |format|
+        if @artist.save
+          format.html { redirect_to @artist }
+          format.json { render :show, status: :created}
+        else
+          format.html { render :new }
+          format.json { render json: @artist.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+
+    def show
+      authorize! :show, Artist
+      @artist = Artist.find(params[:id])
+      respond_to do |format|
+       format.js
+       format.html
+      end
+    end
+
+    def edit
+      authorize! :show, Artist
+      @artist = Artist.find(params[:id])
+      respond_to do |format|
+       format.js
+       format.html
+      end
+    end
+
+    def update
+      authorize! :update, Artist
+      @artist = Artist.find(params[:id])
+      respond_to do |format|
+        if @artist.save
+          format.html { redirect_to @artist }
+          format.json { render :show, status: :created}
+        else
+          format.html { render :edit }
+          format.json { render json: @artist.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+
+    def destroy
+      authorize! :destroy, Artist
+      @artist = Artist.find(params[:id])
+      redirect_to artists_path
+    end
+
+    private
+
+    def artists_params
+      params.require(:artist).permit(:name,
+                                     :formed_year,
+                                     :disbanded_year,
+                                     genres: [] )
+    end
+
+  end
 \end{lstlisting}
 
 Помимо непосредственных обработки запросов и возвращения ответов в обязанности контроллера входит проверять права доступа для определённых методов. Например, список артистов может просматривать и не аутентифицированный пользователь, но создать артиста может только зарегистрированный и аутентифицированный. А изменять пользователя может только пользователь с ролью администратора. В данном случае используется авторизация. То есть в некоторых случаях таких, как, например, редактирование модели артиста, для операции необходим функционал аутентификации и авторизации.
 
 Для реализации авторизации приложения применяется библиотека CanCanCan. Принцип работы состоит в том, что разработчики описывают так называемые политики, которые потом используются для проверки прав доступа. Пример написания политик приведён на листинге ~\ref{lst:arch_and_mod:mvc:controller:cancancan_example}.
+
+\begin{lstlisting}[style=fsharpstyle,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:controller:cancancan_example]
+  class Ability
+    include CanCan::Ability
+
+    def initialize(user)
+      role == user.role
+      artists_abilities(user, role)
+    end
+
+    private
+
+    def artists_abilities(user, role)
+      if role == :system_admin
+        can [:index, :new, :create, :edit, :update, :show, :destroy]
+      else
+        can [:index, :new, :create, :show]
+      end
+    end
+
+  end
+
+\end{lstlisting}
+
+В AngularJS контроллеры выступают в роли связующего звена между представлением и некоторой логикой. В AngularJS присутствует переменная \$scope, которой динамически присваиваются свойства и потом к ним можно получить доступ в представлениях. Так и устроен механизм. В AngularJS есть ещё одна возможность, которая позволяет автоматически отслеживать изменения некоторых полей и производить некоторые действия на основе этих изменения. Такая функция называется \$watch, она доступна в контроллерах AngularJS и принимает функцию, аргументами которой являются старое и новое значения отслеживаемого свойства \$scope-переменной. Когда переменная меняется, например, в нашем случае, в строке поиска артиста по имени, мы вводим букву, и, соответственно свойство, применённое к этому полю, меняется, то вызывается функция, переданная в \$watch. Тем временем массив предполагаемых артистов, который при инициализации контроллера является пустым, наполняется артистами, пришедшими с API по запросу, содержащему введенную в поле строку. Код контроллера поиска артиста представлен на листинге ~\ref{lst:arch_and_mod:mvc:controller:angular_controller_example}:
+
+\begin{lstlisting}[style=fsharpstyle,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:controller:angular_controller_example]
+  app = angular.module('app')
+
+  app.controller 'ArtistsSearchController', ['$scope', 'Artist', ($scope, Artist) ->
+
+  $scope.artistTitle = ''
+  $scope.artists = []
+
+  $scope.$watch('addedProductId', (newValue, oldValue) ->
+    if newValue.length > 2
+      Artist.search({title: newValue}, (response) ->
+        $scope.artists = response.artists
+      )
+  )
+\end{lstlisting}
