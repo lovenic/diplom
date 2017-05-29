@@ -238,8 +238,8 @@ end
 \begin{lstlisting}[style=fsharpstyle,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:model:angular_artists_resource]
   app = angular.module('app')
 
-  app.factory 'Artist', ['$resource', ($resource) ->
-    $resource('/artists/:id', { id: '@_id' }, {
+  app.factory 'Artist', ['\$resource', (\$resource) ->
+    \$resource('/artists/:id', { id: '@_id' }, {
       short_info: {method: 'GET', url: '/artist/:id/short_info'}
       extended_info: {method: 'GET', url: '/artists/:id/extended_info'}
       last_releases: {method: 'GET', url: '/artists/:id/last_releases'}
@@ -391,7 +391,7 @@ end
 
 В AngularJS контроллеры выступают в роли связующего звена между представлением и некоторой логикой. В AngularJS присутствует переменная \$scope, которой динамически присваиваются свойства и потом к ним можно получить доступ в представлениях. Так и устроен механизм. В AngularJS есть ещё одна возможность, которая позволяет автоматически отслеживать изменения некоторых полей и производить некоторые действия на основе этих изменения. Такая функция называется \$watch, она доступна в контроллерах AngularJS и принимает функцию, аргументами которой являются старое и новое значения отслеживаемого свойства \$scope-переменной. Когда переменная меняется, например, в нашем случае, в строке поиска артиста по имени, мы вводим букву, и, соответственно свойство, применённое к этому полю, меняется, то вызывается функция, переданная в \$watch. Тем временем массив предполагаемых артистов, который при инициализации контроллера является пустым, наполняется артистами, пришедшими с API по запросу, содержащему введенную в поле строку. Код контроллера поиска артиста представлен на листинге ~\ref{lst:arch_and_mod:mvc:controller:angular_controller_example}:
 
-\begin{lstlisting}[style=fsharpstyle,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:controller:angular_controller_example]
+\begin{lstlisting}[language=JavaScript,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:controller:angular_controller_example]
   app = angular.module('app')
 
   app.controller 'ArtistsSearchController', ['$scope', 'Artist', ($scope, Artist) ->
@@ -405,4 +405,158 @@ end
         $scope.artists = response.artists
       )
   )
+\end{lstlisting}
+
+\subsubsection{Уровень представления}
+\label{sub:arch_and_mod:mvc:view}
+~\\
+
+Уровень представления - это третий слой MVC-архитектуры. Он отвечает отображение информации пользователю. Задача уровня представления - быть понятной и привлекательной. В данной дипломной работе уровень представления реализуется тремя библиотками: \ror{}(когда используются HTML-страницы в ответах на запросы), AngularJS(когда используются HTML-шаблоны со вставками angular-кода, управляемыми angular-контроллерами) и Bootstrap(когда необходимы стили для элементов и сетка для их размещения).
+
+%% пример кода Ruby on Rails + Bootstrap (artists list)
+
+Фреймворк \ror{} обладает встроенным HTML-препроцессором и позволяет помещать в HTML части ruby-кода. Оно работает таким образом, что в контроллере инициализируются некоторые переменные и потом используются в представлениях. Пример представления, содержащего список артистов, представлен на листинге ~\ref{lst:arch_and_mod:mvc:controller:rails_view_example}:
+
+\begin{lstlisting}[language=HTML5,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:controller:rails_view_example]
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= @artists.each do |artist|%>
+          <h2>Title</h2>
+          <h3> <%= artist.title %> </h3>
+          <div class="image-container">
+            <%= artist.main_image_path %>
+          </div>
+          <%= link_to 'Show details', artists_path(artist), class: 'btn btn-info' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+\end{lstlisting}
+%% пример кода AngularJS + Bootstrap (search artist)
+
+Аналогичным образом работает и AngularJS с тем отличием, что данные, которыми он пользуется в представлениях, инициализируются в контроллерах. То, как данные попадают в контроллер, уже не заботит представление. В контроллерах AngularJS присутствует переменная \$scope, которая, как клей, связывает контроллер и представление. Пример представления для поиска артиста представлен на листинге ~\ref{lst:arch_and_mod:mvc:controller:angular_view_example}:
+
+\begin{lstlisting}[language=HTML5,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:controller:angular_view_example]
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <input name="artist-search" ng-model="searchTitle" class="form-control"/>
+        <div ng-show="searchResults">
+          <ul class="item-list">
+            <li class="item" ng-repeat="result in searchResults">
+              <span>{{result.title}}</span>
+              <img src="{{result.image_src}}" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+\end{lstlisting}
+
+
+\subsubsection{Написание программного кода для работы с сторонними API}
+\label{sub:arch_and_mod:mvc:controller}
+~\\
+
+Сервис, предоставляющий возможность получения новинок музыкальной индустрии основан на том, что получает информации из сторонних источников. В качестве таких источников выступают веб-сервисы. Одни из них предоставляют программный интерфейс, с помощью которого можно обращаться к сервису, составляя запросы с определёнными параметрами и получая ответы. Другие же не предоставляют такой интерфейс, и, если необходима информация из такого источника, то необходимо с помощью определённых инструментов таких, как Nokogiri, парсить страницы этих сервисов по алгоритмам, которые предусматривают в некоторых случаях автоматическое заполнение, например, строки поиска, размещённой на странице такого сервиса, ожидание ответа, перенаправления на страницу с результатами поиска. После этого необходимо открывать все ссылки и разбирать страницу по элементам. Если же в сервисе нет строки поиска или элемента управления, используя который можно найти необходимую информацию, то можно пойти способом перебора ссылок на страницы с нужной информацией путём изменения id или slug необходимых ресурсов. Такой способ имеет ряд недостатков:
+
+\begin{itemize}
+  \item привязанность к структуре веб-страниц;
+  \item получение информации не напрямую из БД, а из представлений;
+  \item необходимость учёта большого количества факторов для успешного парсинга;
+  \item небольшая польза тестирования из-за непостоянной структуры данных;
+  \item необходимость переписания кодовой базы при изменении содержимого страниц стороннего сервиса;
+\end{itemize}
+
+Вторым видом получения информации из стороннего приложения является использование API. Разработчики сервиса предоставляют интерфейс для доступа путём создания запросов на сервер приложения. Этот способ очень удобен, так как позволяет получать именно необходимую информацию заранее спланированным способом.
+
+Для использования этого методы необходимо реализовать так называемую "обертку". Используя некоторый инструмент, способный делать запросы на удалённый сервер, пишутся методы, которые внутри себя используют обращения к API. Тем самым соблюдается принцип инкапсуляции, когда программист, использующий впоследствии эти методы, не заботится о том, из какого источника берутся данные. Преимущества данного метода:
+
+\begin{itemize}
+  \item получение необходимого количества информации за запрос;
+  \item определённая структура обращений;
+  \item возможность тестирования, которое будет полезным;
+  \item малое время интеграции и написание кодовой базы;
+\end{itemize}
+
+Написать "обертку" для API можно несколькими способами. Первый - это написание так называемого гема. Так называются библиотеки в Ruby, которые потом загружаются в общее хранилище и могут быть использованы другими разработчиками. А второй способ - это написание модуля в кодовой базе приложения. Плюсы гема состоят в том, что разработчик оказывает пользу сообществу, внося свой вклад, но тем самым возлагая на себя ответственность за качество гема. В этом и заключаются минусы гема - необходимо тестирование. Когда пишешь небольшой модуль в приложении, можно себе довериться и не тратить время на тестирование.
+
+При написании "обёртки для API" также важно учесть такое понятие, как "throttling". Оно означет то, что есть ограничение запросов к API в секунду. При превышении данного лимита могут быть последствия в виде блокировок. Необходимо использовать некоторые инструменты, которые будут ограничивать количество запросов.
+
+Пример "обертки" для сервиса Discogs представлен на листинге ~\ref{lst:arch_and_mod:mvc:controller:discogs_wrapper_example}:
+
+
+\begin{lstlisting}[style=fsharpstyle,caption={Пример получения артистов по определённым параметрам}, label=lst:arch_and_mod:mvc:controller:cancancan_example]
+  require 'httparty'
+  require 'api_cache'
+  require 'awesome_print'
+
+  class DiscogsApiWrapper
+
+    include HTTParty
+
+    debug_output $stdout
+
+    attr_accessor :token
+
+    HEADERS = {
+      'User-Agent' => 'BrigntSoundApi/0.0.0'
+    }
+
+    API_CACHE_OPTIONS = {
+      :cache => 3600,
+      :valid => :forever,
+      :period => 2,
+      :timeout => 5,
+      :fail => -1
+    }
+
+    base_uri 'https://api.discogs.com/'
+
+    format :json
+
+    def initialize(opts = {})
+      @token = opts[:token]
+    end
+
+    def get_releases(artist_id, page = 1, per_page = 10)
+      query = encoded_query({
+        page: page,
+        per_page: per_page,
+        token: token
+      })
+      self.class.get(
+        "/artists/#{artist_id}/releases",
+        headers: HEADERS,
+        query: query,
+        debug_output: $stdout
+      )
+    end
+
+    def search_for_artist(artist_name = '', page = 1, per_page = 10)
+      query = encoded_query({
+        type: 'artist',
+        q: artist_name,
+        page: page,
+        per_page: per_page,
+        token: token
+      })
+      APICache.get("artist", API_CACHE_OPTIONS) do
+        self.class.get(
+          "/database/search",
+          headers: HEADERS,
+          query: query
+        )
+      end
+    end
+
+    private
+
+    def encoded_query(params)
+      URI.encode_www_form(params)
+    end
+  end
+
 \end{lstlisting}

@@ -366,6 +366,10 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 OUTPUT sec_econ.aux
 INPUT sec_econ.tex
 INPUT sec_econ.tex
