@@ -25,11 +25,4 @@
 \newblock Режим доступа: \url{http://calendar.by/2013/\#bkm}. ---
   Дата доступа: 05.03.2013.
 
-\bibitem{Koller_2009}
-\selectlanguageifdefined{english}
-\BibEmph{Koller,~D.} Probabilistic Graphical Models: Principles and
-  Techniques~/ D.~Koller, N.~Friedman. ---
-\newblock MIT Press, 2009. ---
-\newblock 1270~P.
-
 \end{thebibliography}

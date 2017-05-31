@@ -150,6 +150,7 @@
 \FPeval{\paymentEconomyByReducingStopTime}{2483.3}
 \FPeval{\commonPaymentEconomyByUsingNewSoftware}{clip(\paymentEconomyCountingUp + \paymentEconomyByReducingStopTime)}
 \FPeval{\pureIncome}{clip(\commonPaymentEconomyByUsingNewSoftware - (\commonPaymentEconomyByUsingNewSoftware * \taxForIncome / 100))}
+\FPround{\pureIncome}{\pureIncome}{1}
 
 \FPeval{\reductionCoeffFirst}{1.000}
 \FPeval{\reductionCoeffSecond}{0.869}
@@ -157,11 +158,17 @@
 \FPeval{\reductionCoeffFourth}{0.659}
 
 \FPeval{\overcomeValueSecond}{clip(\reductionCoeffSecond * \pureIncome)}
+\FPround{\overcomeValueSecond}{\overcomeValueSecond}{1}
 \FPeval{\growingResultSecond}{clip(-\allCostsSoftware + \overcomeValueSecond)}
+\FPround{\growingResultSecond}{\growingResultSecond}{1}
 \FPeval{\overcomeValueThird}{clip(\reductionCoeffThird * \pureIncome)}
+\FPround{\overcomeValueThird}{\overcomeValueThird}{1}
 \FPeval{\growingResultThird}{clip(\growingResultSecond + \overcomeValueThird)}
+\FPround{\growingResultThird}{\growingResultThird}{1}
 \FPeval{\overcomeValueFourth}{clip(\reductionCoeffThird * \pureIncome)}
+\FPround{\overcomeValueFourth}{\overcomeValueFourth}{1}
 \FPeval{\growingResultFourth}{clip(\growingResultThird + \overcomeValueThird)}
+\FPround{\growingResultFourth}{\growingResultFourth}{1}
 % End Calculations
 
 \subsection{Введение и исходные данные}
@@ -222,7 +229,7 @@
   \end{tabular}
 \end{table}
 
-Объем программного средства определяется путем подбора аналогов на основании классификации типов программного средства, каталога функций, которые постоянно обновляются и утверждаются в установленном порядке. На основании инфорациии и функциях разрабатываемого программного средства по каталогу функций определяется объем функций. Объем программного средства определяется на основе нормативных данных, приведенных в таблице ~\ref{table:econ:volume_of_po}
+Объем программного средства определяется путем подбора аналогов на основании классификации типов программного средства, каталога функций, которые постоянно обновляются и утверждаются в установленном порядке. На основании инфорациии и функциях разрабатываемого программного средства по каталогу функций определяется объем функций. Объем программного средства определяется на основе нормативных данных, приведенных в таблице~\ref{table:econ:volume_of_po}.
 
 \begin{table}
 \caption{Перечень и объем функций программного модуля}
@@ -257,7 +264,7 @@
   \end{tabular}
 \end{table}
 
-Общий объем программного продукта определяется исходя из количества и объема функций, реализованных в программе, рассчитывается по формуле ~\ref{eq:econ:total_program_size}:
+Общий объем программного продукта определяется исходя из количества и объема функций, реализованных в программе, рассчитывается по формуле~\ref{eq:econ:total_program_size}:
 \begin{equation}
   \label{eq:econ:total_program_size}
   V_{o} = \sum_{i = 1}^{n} V_{i} \text{\,,}
@@ -277,7 +284,7 @@
     & $ n $ & общее число функций.
 \end{explanation}
 
-Уточненный объем ПО - 8400 LOC. По отнесено ко второй категории сложности: предполагается обеспечить переносимость ПО. Наличие характеристики, определяющей сложность ПО, позволяет применить к объему ПО коэффициент $ \text{К}_\text{с} $. Посредством коэффициента сложности учитываются дополнительные затраты труда, связанные со сложностью разрабатываемого программного продукта. Коэффициент сложности рассчитывается по формуле~\ref{eq:econ:complexity_coeff}
+Уточненный объем ПО - 8400 LOC. По отнесено ко второй категории сложности: предполагается обеспечить переносимость ПО. Наличие характеристики, определяющей сложность ПО, позволяет применить к объему ПО коэффициент $ \text{К}_\text{с} $. Посредством коэффициента сложности учитываются дополнительные затраты труда, связанные со сложностью разрабатываемого программного продукта. Коэффициент сложности рассчитывается по формуле~\ref{eq:econ:complexity_coeff}:
 
 \begin{equation}
 \label{eq:econ:complexity_coeff}
@@ -319,7 +326,7 @@
 \end{equation}
 
 На основе общей трудоемкости и требуемых сроков реализации проекта вычисляется плановое количество исполнителей.
-Численность исполнителей проекта рассчитывается по формуле:
+Численность исполнителей проекта рассчитывается по формуле~\ref{eq:econ:num_of_programmers}:
 \begin{equation}
   \label{eq:econ:num_of_programmers}
   \text{Ч}_\text{р} = \frac{\text{Т}_\text{о}}{\text{Т}_\text{р} \cdot \text{Ф}_\text{эф}} \text{\,,}
@@ -330,7 +337,7 @@
     & $ \text{Т}_\text{р} $ & срок разработки проекта, лет.
 \end{explanation}
 
-Эффективный фонд времени работы одного разработчика вычисляется по формуле
+Эффективный фонд времени работы одного разработчика вычисляется по формуле~\ref{eq:econ:effective_time_per_programmer}:
 \begin{equation}
   \label{eq:econ:effective_time_per_programmer}
   \text{Ф}_\text{эф} =
@@ -346,12 +353,12 @@
     & $ \text{Д}_\text{п} $ & количество дней отпуска, дн.
 \end{explanation}
 
-Согласно данным, приведенным в производственном календаре для пятидневной рабочей недели в 2017 году для Беларуси~\cite{belcalendar_2013}, фонд рабочего времени составит
+Согласно данным, приведенным в производственном календаре для пятидневной рабочей недели в 2017 году для Беларуси~\cite{belcalendar_2013}, фонд рабочего времени составит:
 \begin{equation}
   \text{Ф}_\text{эф} = \num{\daysInYear} - \num{\redLettersDaysInYear} - \num{\weekendDaysInYear} - \num{\vocationDaysInYear} = \SI{\workingDaysInYear}{\text{дн.}}
 \end{equation}
 
-Учитывая срок разработки проекта $ \text{Т}_\text{р} = \SI{\developmentTimeMonths}{\text{мес.}} = \SI{\developmentTimeYears}{\text{года}} $, общую трудоемкость и фонд эффективного времени одного работника, вычисленные ранее, можем рассчитать численность исполнителей проекта
+Учитывая срок разработки проекта $ \text{Т}_\text{р} = \SI{\developmentTimeMonths}{\text{мес.}} = \SI{\developmentTimeYears}{\text{года}} $, общую трудоемкость и фонд эффективного времени одного работника, вычисленные ранее, можем рассчитать численность исполнителей проекта:
 \begin{equation}
   \label{eq:econ:num_of_programmers_calc}
   \text{Ч}_\text{р} =
@@ -381,7 +388,7 @@
   \end{tabular}
 \end{table}
 
-Месячная тарифная ставка одного работника вычисляется по формуле
+Месячная тарифная ставка одного работника вычисляется по формуле~\ref{eq:econ:month_salary}:
 \begin{equation}
   \label{eq:econ:month_salary}
   \text{Т}_\text{ч} =
@@ -752,7 +759,7 @@
     \num{\income} \times \left( 1 - \frac{\num{\taxForIncome\%}}{100\%} \right) = \SI{\incomeWithTaxes}{\text{\byr}} \text{\,.}
 \end{equation}
 
-Результаты расчета себестоимости и отпускной цены представлены в таблице ~\ref{table:econ:selfprice}
+Результаты расчета себестоимости и отпускной цены представлены в таблице~\ref{table:econ:selfprice}
 
 \begin{table}
 \caption{Себестоимость и отпускная цена ПО}
@@ -840,39 +847,33 @@
      \hline
      Среднемесячное количество рабочих дней & $\text{Д}_{\text{р}}$ & день & \num{\averageWorkingDaysMontly} & \num{\averageWorkingDaysMontly} \\
      \hline
-     Количество типовых задачи решаемых за год & $\text{З}_{\text{т1}}$, $\text{З}_{\text{т2}}$ & задача & \num{\typicalIssueSolvingInYear} & \num{\typicalIssueSolvingInYear} \\
-     \hline
      Объем выполняемых работ & $\text{А}_{\text{1}}$, $\text{А}_{\text{2}}$ & задача & \num{\jobsVolume} & \num{\jobsVolume} \\
      \hline
      Средняя трудоемкость работ в расчете на задачу & $\text{Т}_{\text{с1}}$, $\text{Т}_{\text{с2}}$ & человеко-часов на задачу & \num{\baseAverageLabourIntensity} & \num{\newAverageLabourIntensity} \\
-     \hline
-     Количество часов работы в день & $\text{Т}_{\text{ч}}$ & час & \num{\workingHoursInDay} & \num{\workingHoursInDay} \\
-     \hline
-     Ставка налога на прибыль & $\text{Н}_{\text{п}}$ & час & \num{\taxForIncome} & \num{\taxForIncome} \\
      \hline
    \end{tabular}
 \end{table}
 
 Общие капитальные вложения ($ \text{К}_{\text{о}} $) заказчика(потребителя), связанные с приобретением, внедрением и использованием ПС, включают в себя затраты на приобретение, освоение ПС, а также затраты на доукомплектацию техническими средствами в связи с внедрением нового ПС, а также затраты на пополнение оборотных средств в связи с использованием нового ПС.
 
-Экономия затрат на заработную плату в расчете на 1 задачу ($ \text{С}_{\text{зе}} $) рассчитаем по формуле ~\ref{eq:economic:spendingEconomyOnPayment}:
+Экономия затрат на заработную плату в расчете на 1 задачу ($ \text{С}_{\text{зе}} $) рассчитаем по формуле~\ref{eq:economic:spendingEconomyOnPayment}:
 \begin{equation}
   \label{eq:economic:spendingEconomyOnPayment}
   \text{C}_{\text{зе}} =
     \frac { \text{З}_{\text{см}} \times (\text{Т}_{\text{с1}} - \text{Т}_{\text{с2}}) }
           { \text{Т}_{\text{ч}} \times \text{Д}_{\text{р}}}
 \end{equation}
-Экономия заработной платы при использовании нового ПО ($ \text{С}_{\text{з}} $)рассчитывается по формуле ~\ref{eq:economic:spendingEconomyByNewSoftware}:
+Экономия заработной платы при использовании нового ПО ($ \text{С}_{\text{з}} $)рассчитывается по формуле~\ref{eq:economic:spendingEconomyByNewSoftware}:
 \begin{equation}
   \label{eq:economic:spendingEconomyByNewSoftware}
   \text{C}_{\text{з}} = { \text{З}_{\text{зе}} \times \text{А}_{\text{2}} }
 \end{equation}
-Экономия с учетом начисления на зарплату ($ \text{С}_{\text{н}} $) рассчитывается по формуле ~\ref{eq:economic:spendingEconomyByUp}
+Экономия с учетом начисления на зарплату ($ \text{С}_{\text{н}} $) рассчитывается по формуле~\ref{eq:economic:spendingEconomyByUp}
 \begin{equation}
   \label{eq:economic:spendingEconomyByUp}
   \text{C}_{\text{н}} = { \text{С}_{\text{з}} \times 1,5 }
 \end{equation}
-Экономия за счет сокращения простоев сервиса ($ \text{С}_{\text{с}} $) рассчитывается по формуле ~\ref{eq:economic:spendingEconomyByStopReducing}:
+Экономия за счет сокращения простоев сервиса ($ \text{С}_{\text{с}} $) рассчитывается по формуле~\ref{eq:economic:spendingEconomyByStopReducing}:
 \begin{equation}
   \label{eq:economic:spendingEconomyByStopReducing}
   \text{C}_{\text{с}} =
@@ -880,7 +881,7 @@
           { 60 }
 \end{equation}
 \begin{explanation}
-  где & $ \text{Д}_{\text{рг}} $ & - плановый фонд работы сервиса (дней).
+  где & $ \text{Д}_{\text{рг}} $ & плановый фонд работы сервиса (дней).
 \end{explanation}
 
 Общая годовая экономия текущих затрат, связанных с использованием нового ПО ($ \text{C}_{\text{о}} $), рассчитывается по формуле~\ref{eq:economic:commonYearEconomy}:
@@ -922,7 +923,7 @@
 
 \subsection{Расчет экономического эффекта}
 
-Для пользователя в качестве экономического эффекта выступает лишь чистая прибыль - дополнительная прибыль, остающаяся в его распоряжении, которая определяется по формуле ~\ref{eq:economic:pure_income}
+Для пользователя в качестве экономического эффекта выступает лишь чистая прибыль - дополнительная прибыль, остающаяся в его распоряжении, которая определяется по формуле~\ref{eq:economic:pure_income}
 
 \begin{equation}
   \label{eq:economic:pure_income}
@@ -959,12 +960,12 @@
 \caption{Расчёт экономического эффекта от использования нового программного продукта}
 \label{table:economic:economicEffect}
   \centering
-  \begin{tabular}{| >{\centering}m{0.2\textwidth}
-                  | >{\centering}m{0.15\textwidth}
-                  | >{\centering}m{0.15\textwidth}
-                  | >{\centering}m{0.15\textwidth}
-                  | >{\centering}m{0.15\textwidth}
-                  | >{\centering\arraybackslash}m{0.15\textwidth}|}
+  \begin{tabular}{| >{\centering}m{0.20\textwidth}
+                  | >{\centering}m{0.11\textwidth}
+                  | >{\centering}m{0.11\textwidth}
+                  | >{\centering}m{0.11\textwidth}
+                  | >{\centering}m{0.11\textwidth}
+                  | >{\centering\arraybackslash}m{0.11\textwidth}|}
     \hline
     {\begin{center}
       Наименование
@@ -973,8 +974,6 @@
     Приоритет прибыли за счёт экономии затрат & \byr{} & - & \num{\pureIncome} & \num{\pureIncome} & \num{\pureIncome} \\
     \hline
     Прирост прибыли с учётом фактора времени & \byr{} & - & \num{\overcomeValueSecond} & \num{\overcomeValueThird} & \num{\overcomeValueFourth} \\
-    \hline
-    Затраты: & & & & & \\
     \hline
     Затраты на освоение и сопровождение ПС & \byr{} & \num{\softwareSupportCost} & & & \\
     \hline
