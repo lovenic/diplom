@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \def\selectlanguageifdefined#1{
 \expandafter\ifx\csname date#1\endcsname\relax
 \else\language\csname l@#1\endcsname\fi}
@@ -6,6 +6,57 @@
 \ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
 \ifx\undefined\BibAnnote\long\def\BibAnnote#1{}\else\fi
 \ifx\undefined\BibEmph\def\BibEmph#1{#1}\else\fi
+
+\bibitem{rails_guides}
+\selectlanguageifdefined{english}
+Rails Guides [Электронный ресурс]. --
+\newblock Электронные данные. --
+\newblock Режим доступа: http://guides.rubyonrails.org/.
+
+\bibitem{angularjs_doc}
+\selectlanguageifdefined{english}
+AngularJS documentation [Электронный ресурс]. --
+\newblock Электронные данные. --
+\newblock Режим доступа: https://angularjs.org.
+
+\bibitem{sidekiq_doc}
+\selectlanguageifdefined{english}
+Sidekiq Wiki [Электронный ресурс]. --
+\newblock Электронные данные. --
+\newblock Режим доступа: https://github.com/mperham/sidekiq/wiki.
+
+\bibitem{release_doc}
+\selectlanguageifdefined{english}
+Музыкальный альбом [Электронный ресурс]. --
+\newblock Электронные данные. --
+\newblock Режим доступа:
+  https://ru.wikipedia.org/wiki/Музыкальный\_альбом.
+
+\bibitem{api_doc}
+\selectlanguageifdefined{english}
+API [Электронный ресурс]. --
+\newblock Электронные данные. --
+\newblock Режим доступа: https://ru.wikipedia.org/wiki/API.
+
+\bibitem{ruby_documentation}
+\selectlanguageifdefined{russian}
+Ruby documentation [Электронный ресурс]. --
+\newblock Электронные данные. --
+\newblock Режим доступа:
+  https://www.ruby-lang.org/en/documentation/.
+
+\bibitem{erb_doc}
+\selectlanguageifdefined{english}
+ERB documentation [Электронный ресурс]. --
+\newblock Электронные данные. --
+\newblock Режим доступа: https://apidock.com/ruby/ERB.
+
+\bibitem{mvc_doc}
+\selectlanguageifdefined{english}
+Model-View-Controller [Электронный ресурс]. --
+\newblock Электронный данные. --
+\newblock Режим доступа:
+  https://ru.wikipedia.org/wiki/Model-View-Controller.
 
 \bibitem{palicyn_2006}
 \selectlanguageifdefined{russian}

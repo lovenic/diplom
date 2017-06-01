@@ -72,7 +72,6 @@
 \FPeval{\taxWorkProtNormative}{4}
 \FPeval{\taxWorkProtCostExact}{clip( (\totalSalary + \additionalSalary) * \taxWorkProtNormative / 100 )}
 \FPround{\taxWorkProtCost}{\taxWorkProtCostExact}{2}
-\FPeval{\taxWorkProtCost}{0} % это считать не нужно, зануляем чтобы не менять формулы
 
 \FPeval{\stuffNormative}{3}
 \FPeval{\stuffCostExact}{clip( \totalSalary * \stuffNormative / 100 )}
@@ -116,8 +115,7 @@
 
 \FPeval{\localRepubTaxNormative}{3.9}
 \FPeval{\localRepubTaxExact}{clip( \estimatedPrice * \localRepubTaxNormative / (100 - \localRepubTaxNormative) )}
-\FPround{\localRepubTax}{\localRepubTaxExact}{0}
-\FPeval{\localRepubTax}{0}
+\FPround{\localRepubTax}{\localRepubTaxExact}{1}
 
 \FPeval{\ndsNormative}{20}
 \FPeval{\ndsExact}{clip( (\estimatedPrice + \localRepubTax) / 100 * \ndsNormative )}
@@ -200,6 +198,7 @@
 {{\bfseries \tablename\ \thetable{} -- продолжение таблицы}} \\
 \hline
 Наименование показателей & Буквенные обозначения & Единицы измерения & Количество \\
+\hline
 \endhead
 
 \hline
@@ -228,7 +227,7 @@
 Расходы на научные командировки & $ \text{Р}_\text{нк} $ & \% & \num{\businessTripNormative} \\
 \hline
 Прочие прямые расходы & $ \text{П}_\text{з} $ & \% & \num{\otherCostNormative} \\
-\hline
+
 Прочие накладные расходы & $ \text{П}_\text{рн} $ & \% & \num{\overheadCostNormative} \\
 \hline
 Налог на прибыль & $ \text{П}_\text{рн} $ & \% & \num{\taxForIncome} \\
@@ -482,13 +481,13 @@
 \begin{explanation}
   где & $ \text{Н}_{\text{не}} $ & норматив налога, уплачиваемый единым платежом, $ \% $.
 \end{explanation}
-Подставив ранее вычисленные значения в формулу~(\ref{eq:econ:tax_work_prot}) и приняв норматив налога $ \text{Н}_{\text{не}} = \num{\taxWorkProtNormative\%} $ получаем:
+Подставив ранее вычисленные значения в формулу~(\ref{eq:econ:tax_work_prot}) и приняв норматив налога $ \text{Н}_{\text{е}} = \num{\taxWorkProtNormative\%} $ получаем:
 \[
   \label{eq:econ:tax_work_prot_calc}
   \text{Н}_{\text{е}} =
       \frac{ (\num{\totalSalary} + \num{\additionalSalary}) \times \num{\taxWorkProtNormative\%} }
          { \num{100\%} }
-    \approx \SI{\taxWorkProtCost}{\text{\byr}}
+    \approx \SI{\taxWorkProtCostExact}{\text{\byr}}
 \]
 
 По статье "материалы" проходят расходы на носители информации, бумагу, краску для принтеров и другие материалы, используемые при разработке ПО.
@@ -501,7 +500,7 @@
          { \num{100\%} } =
     \frac{ \num{\totalSalary} \times \num{\stuffNormative\%} }
          { \num{100\%} } \approx
-    \SI{\stuffCost}{\text{\byr}} \text{\,.}
+    \SI{\stuffCost}{\text{\byr}}
 \end{equation}
 
 Расходы по статье "машинное время" включают оплату машинного времени, необходимого для разработки и отладки ПО, которое определяется по нормативам в машино-часах на \num{100} строк исходного кода в зависимости от характера решаемых задач и типа ПК, и вычисляются по формуле~\ref{eq:econ:machine_time}:
@@ -645,7 +644,7 @@
   где & $ \text{П}_{\text{с}} $ & прибыль от реализации ПО заказчику, \byr; \\
       & $ \text{У}_{\text{рп}} $ & уровень рентабельности ПО,~$ \% $.
 \end{explanation}
-Подставив известные данные в формулу~(\ref{eq:econ:income_calc}) получаем прогнозируемую прибыль от реализации ПО:
+Подставив известные данные в формулу~(\ref{eq:econ:margin_calculation}) получаем прогнозируемую прибыль от реализации ПО:
 \[
   \text{П}_{\text{с}} =
     \frac { \num{\baseCost} \times \num{\profitability\%} }
@@ -818,8 +817,9 @@
   \cline{4-5} & &
        & { Базовый вариант }
        & { Новый вариант } \tabularnewline
+  \hline
   \endhead
-
+   \hline
    Капитальные вложения & $\text{К}_{\text{пр}}$ & \byr{} & - & \num{\sellingPrice} \\
    \hline
    Затраты на освоение и сопровождение ПС & $\text{К}_{\text{ос}}$ & \byr{} & - & \num{\softwareSupportCost} \\
@@ -831,7 +831,6 @@
    Время простоя сервиса, обсуловленного ПО, в день & $\text{П}_{\text{1}}$, $\text{П}_{\text{2}}$ & мин & \num{\baseStopTime} & \num{\newStopTime} \\
    \hline
    Стоимость одного часа простоя & $\text{С}_{\text{п}}$ & \byr{} & \num{\stopHourPrice} & \num{\stopHourPrice} \\
-   \hline
    Среднемесячная зарплата одного программиста & $\text{З}_{\text{см}}$ & \byr{} & \num{\monthlyProgPayment} & \num{\monthlyProgPayment} \\
    \hline
    Коэффициент начислений на зарплату & $\text{К}_{\text{нз}}$ & - & \num{\paymentUpCoeff} & \num{\paymentUpCoeff} \\
@@ -851,17 +850,17 @@
   \label{eq:economic:spendingEconomyOnPayment}
   \text{C}_{\text{зе}} =
     \frac { \text{З}_{\text{см}} \times (\text{Т}_{\text{с1}} - \text{Т}_{\text{с2}}) }
-          { \text{Т}_{\text{ч}} \times \text{Д}_{\text{р}}}
+          { \text{Т}_{\text{ч}} \times \text{Д}_{\text{р}}}\text{\,.}
 \end{equation}
 Экономия заработной платы при использовании нового ПО ($ \text{С}_{\text{з}} $) рассчитывается по формуле~\ref{eq:economic:spendingEconomyByNewSoftware}:
 \begin{equation}
   \label{eq:economic:spendingEconomyByNewSoftware}
-  \text{C}_{\text{з}} = { \text{З}_{\text{зе}} \times \text{А}_{\text{2}} }
+  \text{C}_{\text{з}} = { \text{З}_{\text{зе}} \times \text{А}_{\text{2}} } \text{\,.}
 \end{equation}
 Экономия с учетом начисления на зарплату ($ \text{С}_{\text{н}} $) рассчитывается по формуле~\ref{eq:economic:spendingEconomyByUp}:
 \begin{equation}
   \label{eq:economic:spendingEconomyByUp}
-  \text{C}_{\text{н}} = { \text{С}_{\text{з}} \times 1,5 }
+  \text{C}_{\text{н}} = { \text{С}_{\text{з}} \times 1,5 } \text{\,.}
 \end{equation}
 Экономия за счет сокращения простоев сервиса ($ \text{С}_{\text{с}} $) рассчитывается по формуле~\ref{eq:economic:spendingEconomyByStopReducing}:
 \begin{equation}
@@ -876,10 +875,10 @@
 Общая годовая экономия текущих затрат, связанных с использованием нового ПО ($ \text{C}_{\text{о}} $), рассчитывается по формуле~\ref{eq:economic:commonYearEconomy}:
 \begin{equation}
   \label{eq:economic:commonYearEconomy}
-  \text{C}_{\text{о}} = \text{C}_{\text{с}} + \text{C}_{\text{н}}
+  \text{C}_{\text{о}} = \text{C}_{\text{с}} + \text{C}_{\text{н}} \text{\,.}
 \end{equation}
 
-Расчет капитальных затрат приведен в таблице~\ref{table:economic:commonPaymentCalculation}
+Расчет капитальных затрат приведен в таблице~\ref{table:economic:commonPaymentCalculation}.
 
 \begin{longtable}{| >{\raggedright}m{0.5\textwidth}
                   | >{\centering}m{0.15\textwidth}
@@ -926,7 +925,7 @@
   \label{eq:economic:pure_income}
   \text{П}_{\text{ч}} = \text{С}_{\text{о}} -
     \frac { \text{С}_{\text{о}} \times \text{Н}_{\text{п}}}
-          { 100 \% }
+          { 100 \% } \text{\,.}
 \end{equation}
 
 Тогда чистая прибыль будет равна:
@@ -938,17 +937,17 @@
 
 \begin{equation}
   \label{eq:economic:reduction_coeff}
-  \alpha_{\text{1}} = (\text{1} - \textit{A}_{\textit{i}})^{\textit{ip}-\text{1}}
+  \alpha_{\text{1}} = (\text{1} - \textit{A}_{\textit{i}})^{\textit{ip}-\text{1}} \text{\,.}
 \end{equation}
 
 Коэффициентам приведения по годам будут соответствовать значения:
 
-\centerline{$ \alpha_{\text{1}} = \num{\reductionCoeffFirst} $ - расчётный год}
+\centerline{$ \alpha_{\text{1}} = \num{\reductionCoeffFirst} $ - расчетный год}
 \centerline{$ \alpha_{\text{2}} = \num{\reductionCoeffSecond} $ - 2018 год}
 \centerline{$ \alpha_{\text{3}} = \num{\reductionCoeffThird} $ - 2019 год}
 \centerline{$ \alpha_{\text{4}} = \num{\reductionCoeffFourth} $ - 2020 год}
 
-Расчёт экономического эффекта от использования нового программного средства представлен в таблице~\ref{table:economic:economicEffect}.
+Расчет экономического эффекта от использования нового программного средства представлен в таблице~\ref{table:economic:economicEffect}.
 
 \begin{longtable}{| >{\raggedright}m{0.20\textwidth}
                   | >{\centering}m{0.11\textwidth}
@@ -956,7 +955,7 @@
                   | >{\centering}m{0.14\textwidth}
                   | >{\centering}m{0.11\textwidth}
                   | >{\centering\arraybackslash}m{0.11\textwidth}|}
-\caption[Расчёт экономического эффекта от использования нового программного продукта]{Расчёт экономического эффекта от использования нового программного продукта}
+\caption[Расчет экономического эффекта от использования нового программного продукта]{Расчет экономического эффекта от использования нового программного продукта}
 \label{table:economic:economicEffect} \\
 
 \hline
@@ -971,20 +970,20 @@
 {\begin{center}
   Наименование
 \end{center} } & Единица измерения & 2017 & 2018 & 2019 & 2020 \\
+\hline
 \endhead
 
 \hline
-Приоритет прибыли за счёт экономии затрат & \byr{} & - & \num{\pureIncome} & \num{\pureIncome} & \num{\pureIncome} \\
+Приоритет прибыли за счет экономии затрат & \byr{} & - & \num{\pureIncome} & \num{\pureIncome} & \num{\pureIncome} \\
 \hline
-Прирост прибыли с учётом фактора времени & \byr{} & - & \num{\overcomeValueSecond} & \num{\overcomeValueThird} & \num{\overcomeValueFourth} \\
-\hline
+Прирост прибыли с учетом фактора времени & \byr{} & - & \num{\overcomeValueSecond} & \num{\overcomeValueThird} & \num{\overcomeValueFourth} \\
 Затраты на освоение и сопровождение ПС & \byr{} & \num{\softwareSupportCost} & & & \\
 \hline
 Затраты на пополнение оборотных фондов, связанных с эксплуатацией нового ПС & \byr{} & \num{\fundsExploationSoftware} & & & \\
 \hline
 Всего затрат & \byr{} & \num{\allCostsSoftware}  & & & \\
 \hline
-То же с учётом фактора времени & \byr{} & \num{\allCostsSoftware}  & & & \\
+То же с учетом фактора времени & \byr{} & \num{\allCostsSoftware}  & & & \\
 \hline
 Экономический эффект & & & & & \\
 \hline
