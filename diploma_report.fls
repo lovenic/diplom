@@ -165,6 +165,10 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang2.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang2.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/ulem/ulem.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/ulem/ulem.sty
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
@@ -323,9 +327,6 @@ OUTPUT sec_arch_and_mod.aux
 INPUT sec_arch_and_mod.tex
 INPUT sec_arch_and_mod.tex
 INPUT /Users/timofeylavnik/Library/texlive/2016/texmf-var/fonts/tfm/lh/lh-t2a/larm1000.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
-INPUT /Users/timofeylavnik/Library/texlive/2016/texmf-var/fonts/tfm/lh/lh-t2a/latt1000.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
@@ -335,6 +336,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /Users/timofeylavnik/Library/texlive/2016/texmf-var/fonts/tfm/lh/lh-t2a/larm0700.tfm
 INPUT /Users/timofeylavnik/Library/texlive/2016/texmf-var/fonts/tfm/lh/lh-t2a/larm1200.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 INPUT /Users/timofeylavnik/Library/texlive/2016/texmf-var/fonts/tfm/lh/lh-t2a/latt1200.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
@@ -366,6 +369,7 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /Users/timofeylavnik/Library/texlive/2016/texmf-var/fonts/tfm/lh/lh-t2a/latt1000.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty

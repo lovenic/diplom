@@ -155,7 +155,7 @@
     {\fivecharsapprox}%
     {-1em \@plus -1ex \@minus -.2ex}%
     {\z@}%
-    {\raggedright\hyphenpenalty=10000\normalfont\normalsize\bfseries}}
+    {\raggedright\hyphenpenalty=10000\normalfont\normalsize}}
 \makeatother
 
 % Зачем: для оформления введения и заключения, они должны быть выровнены по центру.
@@ -211,6 +211,7 @@
 \captionsetup{labelsep=stb}
 \captionsetup[figure]{labelformat=stbfigure,justification=centering}
 \captionsetup[table]{labelformat=stbtable,justification=raggedright}
+\captionsetup[longtable]{labelformat=stbtable,justification=raggedright}
 \renewcommand{\thesubfigure}{\asbuk{subfigure}}
 
 % Зачем: Окружения для оформления формул
@@ -244,7 +245,7 @@
     %\tabularx{\textwidth-\fivecharsapprox}{@{}ll@{ --- } X }
     %% без отступа, СТП-01 2013
     \noindent
-    \tabularx{\textwidth}{@{}ll@{ --- } X }
+    \tabularx{\textwidth}{@{}ll@{ -- } X }
     }
     {
     \\[\parsep]
@@ -385,36 +386,12 @@
   frame=lr,
   rulecolor=\color{blue!80!black}}
 
-
-\lstdefinelanguage{JavaScript}{
-  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  morecomment=[s]{/*}{*/},
-  morecomment=[l]//,
-  morestring=[b]",
-  morestring=[b]'
-}
-
-\lstdefinelanguage{HTML5}{
-    language=html,
-    sensitive=true,
-    alsoletter={<>=-},
-    otherkeywords={
-    % HTML tags
-    <html>, <head>, <title>, </title>, <meta, />, </head>, <body>,
-    <canvas, \/canvas>, <script>, </script>, </body>, </html>, <!, html>, <style>, </style>, ><
-    },
-    ndkeywords={
-    % General
-    =,
-    % HTML attributes
-    charset=, id=, width=, height=,
-    % CSS properties
-    border:, transform:, -moz-transform:, transition-duration:, transition-property:, transition-timing-function:
-    },
-    morecomment=[s]{<!--}{-->},
-    tag=[s]
-}
-
+\lstloadlanguages{Ruby}
+\lstset{%
+basicstyle=\ttfamily\color{black},
+commentstyle = \ttfamily\color{red},
+keywordstyle=\ttfamily\color{blue},
+stringstyle=\color{orange}}
 
 
 % Зачем: Нумерация листингов в пределах секции
@@ -503,4 +480,31 @@
    \fi
 }
 
-\setlength{\abovecaptionskip}{20pt plus 20pt minus 20pt}
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstdefinelanguage{HTML5}{
+    language=html,
+    sensitive=true,
+    alsoletter={<>=-},
+    otherkeywords={
+    % HTML tags
+    <html>, <head>, <title>, </title>, <meta, />, </head>, <body>,
+    <canvas, \/canvas>, <script>, </script>, </body>, </html>, <!, html>, <style>, </style>, ><
+    },
+    ndkeywords={
+    % General
+    =,
+    % HTML attributes
+    charset=, id=, width=, height=,
+    % CSS properties
+    border:, transform:, -moz-transform:, transition-duration:, transition-property:, transition-timing-function:
+    },
+    morecomment=[s]{<!--}{-->},
+    tag=[s]
+}
