@@ -1,6 +1,6 @@
 \newcommand{\byr}{руб.}
 
-\section{Технико-экономическое обоснование эффективности сервиса, предоставляющего возможность получения новинок музыкальной индустрии}
+\section{Технико-экономическое обоснование}
 
 % Begin Calculations
 
@@ -179,7 +179,7 @@
 
 Для представления программного продукта на рынке он должен быть законченным, иметь презентабельный вид. Для реализации программного продукта необходимо пройти через два этапа: этап, связанный с разработкой ПО (выяснение требований, программирование, тестирование, отладка), и этап, связанный с непосредственной реализацией продукта на рынке (реализация, поддержка).
 
-Программный комплекс относится ко 2-й группе сложности. Категория новизны – “В”. Расчеты выполнены на основе методического пособия [1].
+Программный комплекс относится ко 2-й группе сложности. Категория новизны – “В”. Расчеты выполнены на основе методического пособия ~\cite{palicyn_2006}.
 
 Исходные данные для проекта указаны в таблице~\ref{table:econ:initial_data}.
 
@@ -195,7 +195,7 @@
 \endfirsthead
 
 \multicolumn{3}{l}%
-{{\bfseries \tablename\ \thetable{} -- продолжение таблицы}} \\
+{{\tablename\ \thetable{} -- продолжение таблицы}} \\
 \hline
 Наименование показателей & Буквенные обозначения & Единицы измерения & Количество \\
 \hline
@@ -205,7 +205,6 @@
 Коэффициент новизны & $ \text{К}_\text{н} $ & единиц & \num{\originalityFactor} \\
 \hline
 Группа сложности & & единиц & 2 \\
-\hline
 Дополнительный коэффициент сложности & $ \text{К}_\text{сл} $ & единиц & \num{\complexityFactor} \\
 \hline
 Поправочный коэффициент, учитывающий использование типовых программ & $ \text{К}_\text{т} $ & единиц & \num{\stdModuleUsageFactor} \\
@@ -236,7 +235,7 @@
 
 Объем программного средства определяется путем подбора аналогов на основании классификации типов программного средства, каталога функций, которые постоянно обновляются и утверждаются в установленном порядке. На основании инфорациии и функциях разрабатываемого программного средства по каталогу функций определяется объем функций. Объем программного средства определяется на основе нормативных данных, приведенных в таблице~\ref{table:econ:volume_of_po}.
 
-\begin{longtable}{| >{\raggedright}m{0.12\textwidth}
+\begin{longtable}{| >{\centering}m{0.12\textwidth}
                   | >{\centering}m{0.40\textwidth}
                   | >{\centering}m{0.18\textwidth}
                   | >{\centering\arraybackslash}m{0.18\textwidth}|}
@@ -253,7 +252,7 @@
 \endfirsthead
 
 \multicolumn{3}{l}%
-{{\bfseries \tablename\ \thetable{} -- продолжение таблицы}} \\
+{{\tablename\ \thetable{} -- продолжение таблицы}} \\
 \hline
        \multirow{2}{0.12\textwidth}[-0.5em]{\centering \No{} функции}
      & \multirow{2}{0.40\textwidth}[-0.55em]{\centering Наименование (содержание)}
@@ -372,7 +371,7 @@
     \approx \SI{\requiredNumberOfProgrammers}{\text{рабочих}}.
 \end{equation}
 
-Вычисленные оценки показывают, что для выполнения запланированного проекта в указанные сроки необходимо три рабочих.
+Вычисленные оценки показывают, что для выполнения запланированного проекта в указанные сроки необходимо трое рабочих.
 Информация о работниках перечислена в таблице~\ref{table:econ:programmers}.
 \begin{longtable}{| >{\raggedright}m{0.4\textwidth}
                   | >{\centering}m{0.15\textwidth}
@@ -386,17 +385,15 @@
 \endfirsthead
 
 \multicolumn{3}{l}%
-{{\bfseries \tablename\ \thetable{} -- продолжение таблицы}} \\
+{{\tablename\ \thetable{} -- продолжение таблицы}} \\
 \hline
 Исполнители & Разряд & Тарифный коэффициент & \mbox{Чел./дн.} занятости \\\hline
 \endhead
 
 
-\hline
 Программист \Rmnum{2}-категории & $ \num{12} $ & $ \num{\tariffFactorScnd} $ & $ \num{\employmentScnd} $ \\
 \hline
 Программист \Rmnum{1}-категории & $ \num{13} $ & $ \num{\tariffFactorFst} $ & $ \num{\employmentFst} $ \\
-\hline
 Ведущий программист & $ \num{14} $ & $ \num{\tariffFactorMjr} $ & $ \num{\employmentMjr} $ \\
 \hline
 \end{longtable}
@@ -539,7 +536,7 @@
 \begin{explanation}
   где & $ \text{Н}_{\text{к}} $ & норматив командировочных расходов по отношению к основной заработной плате, $ \% $.
 \end{explanation}
-Подставляя ранее вычисленные значения в формулу~(\ref{eq:econ:business_trip}) и приняв значение $ \text{Н}_{\text{к}} = \num{\businessTripNormative\%} $ получаем
+Подставляя ранее вычисленные значения в формулу~(\ref{eq:econ:business_trip}) и приняв значение $ \text{Н}_{\text{к}} = \num{\businessTripNormative\%} $ получаем:
 \[
     \text{Р}_{\text{к}} =
     \frac{ \num{\totalSalary} \times \num{\businessTripNormative\%} }
@@ -744,7 +741,7 @@
 \endfirsthead
 
 \multicolumn{3}{l}%
-{{\bfseries \tablename\ \thetable{} -- продолжение таблицы}} \\
+{{\tablename\ \thetable{} -- продолжение таблицы}} \\
 \hline
 {\begin{center}
   Наименование
@@ -808,7 +805,7 @@
   \endfirsthead
 
   \multicolumn{3}{l}%
-  {{\bfseries \tablename\ \thetable{} -- продолжение таблицы}} \\
+  {{\tablename\ \thetable{} -- продолжение таблицы}} \\
   \hline
          \multirow{2}{0.3\textwidth}{\centering Наименования}
        & \multirow{2}{0.17\textwidth}{\centering Обозначения}
@@ -838,7 +835,6 @@
    Среднемесячное количество рабочих дней & $\text{Д}_{\text{р}}$ & день & \num{\averageWorkingDaysMontly} & \num{\averageWorkingDaysMontly} \\
    \hline
    Объем выполняемых работ & $\text{А}_{\text{1}}$, $\text{А}_{\text{2}}$ & задача & \num{\jobsVolume} & \num{\jobsVolume} \\
-   \hline
    Средняя трудоемкость работ в расчете на задачу & $\text{Т}_{\text{с1}}$, $\text{Т}_{\text{с2}}$ & человеко-часов на задачу & \num{\baseAverageLabourIntensity} & \num{\newAverageLabourIntensity} \\
    \hline
 \end{longtable}
@@ -893,7 +889,7 @@
 \endfirsthead
 
 \multicolumn{3}{l}%
-{{\bfseries \tablename\ \thetable{} -- продолжение таблицы}} \\
+{{\tablename\ \thetable{} -- продолжение таблицы}} \\
 \hline
 {\begin{center}
   Наименование
@@ -965,7 +961,7 @@
 \endfirsthead
 
 \multicolumn{3}{l}%
-{{\bfseries \tablename\ \thetable{} -- продолжение таблицы}} \\
+{{\tablename\ \thetable{} -- продолжение таблицы}} \\
 \hline
 {\begin{center}
   Наименование
@@ -982,7 +978,6 @@
 Затраты на пополнение оборотных фондов, связанных с эксплуатацией нового ПС & \byr{} & \num{\fundsExploationSoftware} & & & \\
 \hline
 Всего затрат & \byr{} & \num{\allCostsSoftware}  & & & \\
-\hline
 То же с учетом фактора времени & \byr{} & \num{\allCostsSoftware}  & & & \\
 \hline
 Экономический эффект & & & & & \\
